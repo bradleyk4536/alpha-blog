@@ -6,6 +6,21 @@
 
 <%= render 'layouts/messages' %>
 
+<!--Add pagination to articles listing-->
+
+<div align="center">
+	<%= will_paginate %>
+</div>
+
+<!--render the partial article-->
 <%= render 'article', obj: @articles %>	
+
+<!--render the partial footer-->
+
+<!--Add pagination to articles listing-->
+
+<div align="center">
+	<%= will_paginate %>
+</div>
 
 <%= render 'footer' %>

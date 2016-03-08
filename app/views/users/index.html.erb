@@ -1,6 +1,7 @@
 <%= render '/layouts/landing_nav' %>
 <h1 class="center">All Alpha Bloggers</h1>
 <section align="center">
+	<%= will_paginate %>
 	<% @users.each do |user| %>
 		<ul class="listing">
 			<div class="row">
@@ -12,6 +13,7 @@
 			</div>
 		</ul>
 	<% end %>
+	<%= will_paginate %>
 </section>
 
 <%= render 'articles/footer'%>
