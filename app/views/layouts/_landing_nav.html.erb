@@ -14,10 +14,17 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right" id="move_nav">
-				<li><%= link_to 'New Article', new_article_path %></li>
-					 <li><a href="#">Sign In</a></li>
-					 <li><a href="#">Sign out</a></li>
+				<% if logged_in? %>
+					 <li><%= link_to 'New Article', new_article_path %></li>
+				<li><%= link_to 'User Profile', user_path(current_user) %></li>
+				<li><%= link_to 'Log out', logout_path, method: :delete %></li>
       </ul>
+			<% else %>
+			<ul class="nav navbar-nav navbar-right" id="move_nav">
+					 <li><%= link_to 'Sign up', signup_path %></li>
+					 <li><%= link_to 'Log in', login_path %></li>
+      </ul>
+			<% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
