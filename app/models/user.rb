@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
 
 	#add association to table one to many with user being the one side and articles being the many
+#	and destroy all articles if deleted
 
-	has_many :articles
+	has_many :articles, dependent: :destroy
 
 	#make sure all emails are set to lower case before being sent to database
 
