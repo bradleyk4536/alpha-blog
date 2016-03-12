@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class CategoriesControllerTest < ActionController::TestCase
+	
+	#	used to get id to pass to test
+	def setup
+		@category = Category.create(name: "sports")
+	end
 
 #	First check to show all routes are present
 
@@ -15,7 +20,7 @@ class CategoriesControllerTest < ActionController::TestCase
 	end
 
 	test "should get show" do
-		get :show
+		get(:show, { 'id' => @category.id })
 		assert_response :success
 	end
 
