@@ -72,10 +72,19 @@ html, body {
 .listing {
 	list-style: none;
 	padding-left: 0;
-	
 }
 
+.badge {
+	background-color: lightblue !important;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-weight: bold !important;
+	margin-right: 10px;
+}
 
+.input_checkbox input {
+	width: auto !important
+}
 /*Style footer in partial _footer.html.erb */
 footer {
 //	background: #818283; /* fallback for old browsers */

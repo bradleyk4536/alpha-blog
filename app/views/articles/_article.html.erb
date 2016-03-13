@@ -20,6 +20,10 @@
 							</div>
 						</small>
 					</div>
+<!--				show categories article is associated with-->
+				<% if article.categories.any? %>
+				<p> <%= render article.categories %> </p>
+				<% end %>
 				<!--						Add edit and delete button to each article listing-->
 				<% if logged_in? && (current_user == article.user || current_user.admin?) %>
 						<div class="article-actions">
