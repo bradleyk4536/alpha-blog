@@ -4,6 +4,11 @@ class Article < ActiveRecord::Base
 
 	belongs_to :user
 
+	#establish association with article_category
+
+	has_many :article_categories
+	has_many :categories, through: :article_categories
+
 	#add validation to title, make sure present, and length is 3 to 50
 
 	validates :title, presence: true, length: {minimum: 3, maximum: 50 }

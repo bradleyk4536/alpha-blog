@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CategoriesControllerTest < ActionController::TestCase
 	
-	#	used to get id to pass to test
+	#	used to get id to pass to show test
 	def setup
 		@category = Category.create(name: "sports")
 
@@ -10,7 +10,7 @@ class CategoriesControllerTest < ActionController::TestCase
 		@user = User.create(username: "john", email: "john@example.com", password: "password", admin: true)
 	end
 
-#	First check to show all routes are present
+	#	First check to show all required routes are present
 
 	test "should get categories index" do
 		get :index
@@ -28,6 +28,8 @@ class CategoriesControllerTest < ActionController::TestCase
 		get(:show, { 'id' => @category.id })
 		assert_response :success
 	end
+
+#	used to restrict access
 
 	test "should redirect create when admin not logged in" do
 		assert_no_difference 'Category.count' do
