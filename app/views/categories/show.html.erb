@@ -6,6 +6,17 @@
 
 <%= render 'layouts/messages' %>
 
+<!--Add edit button to form Test to see if user is admin and logged in-->
+
+<% if logged_in? and current_user.admin? %>
+	<div align="center">
+		<div class="row">
+			<span class="badge"> <%= link_to "Edit Category Name", edit_category_path(@category) %> </span>
+		</div>
+	</div>
+<% end %>
+
+
 <!--Add pagination to articles listing-->
 
 <div align="center">
@@ -15,12 +26,13 @@
 <!--render the partial article-->
 <%= render 'articles/article', obj: @category_articles %>
 
-<!--render the partial footer-->
 
 <!--Add pagination to articles listing-->
 
 <div align="center">
 	<%= will_paginate @category_articles %>
 </div>
+
+<!--render the partial footer-->
 
 <%= render 'articles/footer' %>
